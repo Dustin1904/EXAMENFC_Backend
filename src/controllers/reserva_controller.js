@@ -41,7 +41,7 @@ const listarReserva = async ( req , res ) => {
 	// Reserva.cliente = Reserva.cliente.nombre + " " + Reserva.cliente.apellido;
 	// Reserva.tecnico = Reserva.tecnico.nombre + " " + Reserva.tecnico.apellido;
 
-	res.status(200).json(Reserva);
+	res.status(200).json(reserva);
 };
 
 const detalleReserva = async (req, res) => {

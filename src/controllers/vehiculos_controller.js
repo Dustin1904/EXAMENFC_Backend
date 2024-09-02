@@ -27,11 +27,11 @@ const detallevehiculo = async ( req , res ) => {
 
     const vehiculo = await Vehiculo.findById( id ).select("-createdAt -updatedAt -__v");
 
-    const Reservas = await Reserva.find().where('vehiculo').equals( id ).populate("cliente", "_id cedula nombre apellido email telefono").populate("vehiculo", "_id marca modelo placa").select("-createdAt -updatedAt -__v"); 
+    const reserva = await Reserva.find().where('vehiculo').equals( id ).populate("cliente", "_id cedula nombre apellido email telefono").populate("vehiculo", "_id marca modelo placa").select("-createdAt -updatedAt -__v"); 
 
     if ( !vehiculo ) return res.status(404).json({ res: "ERROR!!, vehiculo no encontrado"});
 
-    res.status(200).json({ vehiculo , Reservas });
+    res.status(200).json({ vehiculo , reserva });
 }
 
 const actualizarvehiculo = async ( req , res ) => {
